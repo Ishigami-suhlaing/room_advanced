@@ -3,6 +3,8 @@ package com.example.roomforeinkey.ui.group
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.roomforeinkey.R
 
@@ -11,7 +13,8 @@ import com.example.roomforeinkey.data.local.entities.GroupEntity
 
 class GroupAdapter(
     private var groups: List<GroupEntity>,
-    private val onItemClick: (GroupEntity) -> Unit
+    private val onItemClick: (GroupEntity) -> Unit,
+    private val onDeleteClick:(GroupEntity) -> Unit
 ): RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,19 +30,27 @@ class GroupAdapter(
         position: Int
     ) {
         holder.bind(groups[position])
+
+
     }
 
     override fun getItemCount(): Int = groups.size
 
     inner class GroupViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val groupNameText: TextView = itemView.findViewById(R.id.groupNameText)
+        private val groupDeleteBtn: ImageView = itemView.findViewById(R.id.group_delete_btn)
 
         fun bind(group: GroupEntity){
             groupNameText.text = group.groupName
             itemView.setOnClickListener {
                 onItemClick(group)
             }
+            groupDeleteBtn.setOnClickListener {
+                onDeleteClick(group)
+            }
         }
+
+
     }
 
     fun updateGroups(newGroups: List<GroupEntity>) {

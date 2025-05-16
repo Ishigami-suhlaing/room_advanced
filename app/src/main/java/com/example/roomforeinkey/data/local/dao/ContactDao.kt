@@ -17,5 +17,5 @@ interface ContactDao {
     suspend fun deleteContact(contact: ContactEntity)
 
     @Query("SELECT * FROM contacts WHERE groupOwnerId = :groupId")
-    suspend fun getAllContact(groupId: Int): Flow<List<ContactEntity>>
+     fun getAllContact(groupId: Int): Flow<List<ContactEntity>>
 }

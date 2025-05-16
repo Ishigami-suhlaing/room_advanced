@@ -25,25 +25,34 @@ class GroupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
+        binding = ActivityGroupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        binding = ActivityGroupBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
 
         val dao = AppDatabase.getInstance(applicationContext).groupDao()
         val factory = GroupViewModelFactory(dao)
         viewModel = ViewModelProvider(this, factory).get(GroupViewModel::class.java)
 
-        groupAdapter = GroupAdapter(emptyList()){group ->
+        groupAdapter = GroupAdapter(emptyList(),
+            onItemClick = {group ->
 
             val intent = Intent(this, ContactActivity::class.java)
             intent.putExtra("group_id",group.groupId)
             startActivity(intent)
-        }
+        },
+            onDeleteClick = {group ->
+                viewModel.deleteGroup(group)
+            }
+        )
 
         binding.groupRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@GroupActivity)

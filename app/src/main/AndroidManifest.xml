@@ -15,11 +15,11 @@
         <activity
             android:name=".ui.contact.ContactActivity"
             android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.group.GroupActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ui.group.GroupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
