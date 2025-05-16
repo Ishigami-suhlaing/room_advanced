@@ -1,9 +1,10 @@
-package com.example.roomforeinkey
+package com.example.roomforeinkey.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
+import com.example.roomforeinkey.data.local.entities.ContactEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
