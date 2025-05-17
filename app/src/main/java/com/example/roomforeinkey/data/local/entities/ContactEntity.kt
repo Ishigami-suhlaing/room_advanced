@@ -22,5 +22,6 @@ import androidx.room.PrimaryKey
 data class ContactEntity (
     @PrimaryKey(autoGenerate = true)val contactId:Int = 0,
     val name: String,
+    val phoneNumber: String,
     val groupOwnerId:Int//group နဲ့ contact ကို ချိတ်ဆက်ပေး
 )

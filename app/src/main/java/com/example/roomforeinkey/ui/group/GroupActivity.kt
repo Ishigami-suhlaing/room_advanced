@@ -47,6 +47,7 @@ class GroupActivity : AppCompatActivity() {
 
             val intent = Intent(this, ContactActivity::class.java)
             intent.putExtra("group_id",group.groupId)
+                intent.putExtra("group_name", group.groupName)
             startActivity(intent)
         },
             onDeleteClick = {group ->

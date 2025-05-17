@@ -9,7 +9,7 @@ import com.example.roomforeinkey.data.local.entities.GroupEntity
 import com.example.roomforeinkey.data.local.dao.ContactDao
 import com.example.roomforeinkey.data.local.dao.GroupDao
 
-@Database(entities = [GroupEntity::class, ContactEntity::class], version = 1)
+@Database(entities = [GroupEntity::class, ContactEntity::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun groupDao(): GroupDao
     abstract fun contactDao(): ContactDao
@@ -23,7 +23,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "group_contact_db"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration().build().also { INSTANCE = it }
             }
         }
     }
