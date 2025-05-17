@@ -19,13 +19,11 @@ Smart Contact Manager is a lightweight and offline-first Android app built with 
 - **Material Design** – Clean and modern UI
 
 ## 📸 Screenshots
-
-> _Add screenshots here if available_
+![photo_2025-05-17_16-40-19](https://github.com/user-attachments/assets/f4d0f38b-0ee3-45c5-809e-718a921bc696)
+![photo_2025-05-17_16-40-23](https://github.com/user-attachments/assets/36e28a43-e2f0-4430-a41d-1dcacc673435)
 
 ## 🚀 Getting Started
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/smart-contact-manager.git
-![photo_2025-05-17_16-40-19](https://github.com/user-attachments/assets/f4d0f38b-0ee3-45c5-809e-718a921bc696)
-![photo_2025-05-17_16-40-23](https://github.com/user-attachments/assets/36e28a43-e2f0-4430-a41d-1dcacc673435)
